@@ -19,19 +19,5 @@ public class ChessEngineJavaApplication implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         String exampleNotation = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
         Utility.printChessBoardExpression(exampleNotation);
-
-        Chessboard board = Chessboard.getInstance();
-
-        System.out.println(board.getSquare(1, 4).getPiece()
-                .getPossibleMoves(board, board.getSquare(1, 4)));
-
-        System.out.println(board.getSquare(1, 4).getPiece().makeMove(board, board.getSquare(1,4), board.getSquare(3,
-                4)));
-
-        System.out.println(board.getSquare(3, 4).getPiece()
-                .getPossibleMoves(board, board.getSquare(3, 4)));
-
-        System.out.println(board);
-
     }
 }

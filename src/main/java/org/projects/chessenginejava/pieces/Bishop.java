@@ -14,7 +14,7 @@ public class Bishop extends Piece {
     }
 
     public List<String> getPossibleMoves(Chessboard board, Square currentSquare) {
-        return getDiagonalMoves(board, currentSquare);
+        return getLinearMoves(board, currentSquare, 4);
     }
 
     @Override

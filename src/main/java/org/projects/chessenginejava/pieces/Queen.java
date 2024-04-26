@@ -15,8 +15,8 @@ public class Queen extends Piece{
 
     public List<String> getPossibleMoves(Chessboard board, Square currentSquare) {
         List<String> res = new ArrayList<>();
-        res.addAll(getDiagonalMoves(board, currentSquare));
-        res.addAll(getHorizontalandVerticalMoves(board, currentSquare));
+        res.addAll(getLinearMoves(board, currentSquare,4));
+        res.addAll(getLinearMoves(board, currentSquare,0));
         return res;
     }
 

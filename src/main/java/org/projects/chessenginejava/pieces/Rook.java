@@ -14,7 +14,7 @@ public class Rook extends Piece{
 
     @Override
     public List<String> getPossibleMoves(Chessboard board, Square currentSquare) {
-        return getHorizontalandVerticalMoves(board, currentSquare);
+        return getLinearMoves(board, currentSquare, 0);
     }
 
     @Override

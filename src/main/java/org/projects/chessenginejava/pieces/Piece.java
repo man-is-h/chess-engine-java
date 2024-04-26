@@ -19,13 +19,13 @@ public abstract class Piece {
     public abstract List<String> getPossibleMoves(Chessboard board, Square currentSquare);
     public abstract String toString();
     
-    List<String> getHorizontalandVerticalMoves(Chessboard board, Square currentSquare) {
+    List<String> getLinearMoves(Chessboard board, Square currentSquare, int start) {
         int currentRank = currentSquare.getRank();
         int currentFile = currentSquare.getFile() - 'a';
         
         List<String> res = new ArrayList<>();
         
-        for(int i=0; i<4; i++) {
+        for(int i=start; i<(start+4); i++) {
             int nextRank = currentRank + yDir[i];
             int nextFile = currentFile + xDir[i];
             while(nextRank>=0 && nextRank<8 && nextFile>=0 && nextFile<8 &&
@@ -41,31 +41,6 @@ public abstract class Piece {
             }
         }
         
-        return res;
-    }
-
-    List<String> getDiagonalMoves(Chessboard board, Square currentSquare) {
-        int currentRank = currentSquare.getRank();
-        int currentFile = currentSquare.getFile() - 'a';
-
-        List<String> res = new ArrayList<>();
-
-        for(int i=4; i<8; i++) {
-            int nextRank = currentRank + yDir[i];
-            int nextFile = currentFile + xDir[i];
-            while(nextRank>=0 && nextRank<8 && nextFile>=0 && nextFile<8 &&
-                    (board.getSquare(nextRank, (char)nextFile).getPiece() == null ||
-                            board.getSquare(nextRank, (char)nextFile).getPiece().getColor() != this.getColor())) {
-
-                res.add((char)(nextFile+'a') + "" + nextRank);
-                if(board.getSquare(nextRank, (char)nextFile).getPiece()!=null && board.getSquare(nextRank,
-                        (char)nextFile).getPiece().getColor() != this.getColor())
-                    break;
-                nextRank += yDir[i];
-                nextFile += xDir[i];
-            }
-        }
-
         return res;
     }
 
