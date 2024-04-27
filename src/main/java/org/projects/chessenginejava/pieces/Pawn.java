@@ -19,18 +19,18 @@ public class Pawn extends Piece {
         int currentFile = currentSquare.getFile() - 'a';
 
         if(this.getColor() == Color.WHITE) {
-            if(currentRank == 1 && board.getSquare(currentRank + 2, currentFile).getPiece() == null) {
-                res.add((char) (currentFile + 'a') + "" + (currentRank + 3));
-            }
-            if(currentRank + 1 < 8 && board.getSquare(currentRank + 1, currentFile).getPiece() == null) {
+            if(currentRank == 2 && board.getSquare(currentRank + 2, currentFile).getPiece() == null) {
                 res.add((char) (currentFile + 'a') + "" + (currentRank + 2));
             }
+            if(currentRank + 1 <= 8 && board.getSquare(currentRank + 1, currentFile).getPiece() == null) {
+                res.add((char) (currentFile + 'a') + "" + (currentRank + 1));
+            }
         } else {
-            if(currentRank == 6 && board.getSquare(currentRank - 2, currentFile).getPiece() == null) {
-                res.add((char) (currentFile + 'a') + "" + (currentRank - 1));
+            if(currentRank == 7 && board.getSquare(currentRank - 2, currentFile).getPiece() == null) {
+                res.add((char) (currentFile + 'a') + "" + (currentRank - 2));
             }
             if(currentRank - 1 >= 0 && board.getSquare(currentRank - 1, currentFile).getPiece() == null) {
-                res.add((char) (currentFile + 'a') + "" + (currentRank));
+                res.add((char) (currentFile + 'a') + "" + (currentRank-1));
             }
         }
         return res;

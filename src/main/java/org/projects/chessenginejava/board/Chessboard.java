@@ -16,7 +16,7 @@ public class Chessboard {
         this.board = new Square[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                board[i][j] = new Square(i, (char) ('a'+j));
+                board[i][j] = new Square(i+1, (char) ('a'+j));
             }
         }
     }
@@ -29,7 +29,7 @@ public class Chessboard {
     }
 
     public Square getSquare(int rank, int file) {
-        return board[rank][file];
+        return board[rank-1][file];
     }
 
     @Override
@@ -39,5 +39,9 @@ public class Chessboard {
                 .replace("[","|")
                 .replace("]]","|")
                 .replace(","," ");
+    }
+
+    public void printBoard() {
+        System.out.println(this);
     }
 }

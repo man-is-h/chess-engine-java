@@ -7,14 +7,12 @@ import java.util.ArrayList;
 
 public class Utility {
 
-    public static void printChessBoardExpression(String fenNotation) {
+    public static void initChessBoard(String fenNotation) {
         // split string on '/' to get pieces in each rank
 
         ArrayList<String> ranks;
         ranks = splitFenNotation(fenNotation);
-//        printRanks(ranks);
-        Chessboard board = createChessBoard(ranks);
-        System.out.println(board);
+        createChessBoard(ranks);
     }
 
     private static ArrayList<String> splitFenNotation(String fenNotation) {
@@ -49,8 +47,8 @@ public class Utility {
 
     private static Chessboard createChessBoard(ArrayList<String> ranks) {
         Chessboard board = Chessboard.getInstance();
-        for (int i = 7; i >= 0; i--) {
-            String rank = ranks.get(7-i);
+        for (int i = 8; i >= 1; i--) {
+            String rank = ranks.get(8-i);
             int col = 0;
             for (int j = 0; j < rank.length(); j++) {
                 char c = rank.charAt(j);
